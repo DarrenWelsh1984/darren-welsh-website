@@ -1,0 +1,11 @@
+const header=document.querySelector('[data-header]');
+const navToggle=document.querySelector('[data-nav-toggle]');
+const nav=document.querySelector('[data-nav]');
+const setHeader=()=>header.classList.toggle('scrolled',window.scrollY>24);
+setHeader();window.addEventListener('scroll',setHeader,{passive:true});
+navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');navToggle?.setAttribute('aria-expanded','false');}));
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target);}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const cards=document.querySelectorAll('.floating-card');
+window.addEventListener('mousemove',e=>{const x=(e.clientX/window.innerWidth-.5)*10;const y=(e.clientY/window.innerHeight-.5)*10;cards.forEach((card,i)=>{const depth=(i+1)*.55;card.style.transform=`translate(${x*depth}px,${y*depth}px)`;});},{passive:true});
