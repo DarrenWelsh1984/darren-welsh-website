@@ -1,11 +1,30 @@
-const header=document.querySelector('[data-header]');
-const navToggle=document.querySelector('[data-nav-toggle]');
-const nav=document.querySelector('[data-nav]');
-const setHeader=()=>header.classList.toggle('scrolled',window.scrollY>24);
-setHeader();window.addEventListener('scroll',setHeader,{passive:true});
-navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});
-nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');navToggle?.setAttribute('aria-expanded','false');}));
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target);}})},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-const cards=document.querySelectorAll('.floating-card');
-window.addEventListener('mousemove',e=>{const x=(e.clientX/window.innerWidth-.5)*10;const y=(e.clientY/window.innerHeight-.5)*10;cards.forEach((card,i)=>{const depth=(i+1)*.55;card.style.transform=`translate(${x*depth}px,${y*depth}px)`;});},{passive:true});
+const header = document.querySelector('[data-header]');
+const navToggle = document.querySelector('[data-nav-toggle]');
+const nav = document.querySelector('[data-nav]');
+
+function onScroll(){
+  header.classList.toggle('is-scrolled', window.scrollY > 24);
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+navToggle?.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+document.querySelectorAll('[data-nav] a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('is-open');
+  navToggle?.setAttribute('aria-expanded', 'false');
+}));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
