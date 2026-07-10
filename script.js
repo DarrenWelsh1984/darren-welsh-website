@@ -1,1 +1,25 @@
-const header=document.querySelector('[data-header]');const navToggle=document.querySelector('[data-nav-toggle]');const nav=document.querySelector('[data-nav]');const modal=document.querySelector('[data-modal]');const openButtons=document.querySelectorAll('[data-open-contact]');const closeButton=document.querySelector('[data-close-contact]');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>16)});navToggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open))});nav?.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{nav.classList.remove('open');navToggle?.setAttribute('aria-expanded','false')})});function openModal(){modal.hidden=false;document.body.classList.add('no-scroll');modal.querySelector('input')?.focus()}function closeModal(){modal.hidden=true;document.body.classList.remove('no-scroll')}openButtons.forEach(button=>button.addEventListener('click',openModal));closeButton?.addEventListener('click',closeModal);modal?.addEventListener('click',event=>{if(event.target===modal)closeModal()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!modal.hidden)closeModal()});const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.15});document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));
+const modal = document.querySelector('[data-modal]');
+const openButtons = document.querySelectorAll('[data-open-contact]');
+const closeButton = document.querySelector('[data-close-contact]');
+
+function openModal() {
+  modal.hidden = false;
+  document.body.classList.add('modal-open');
+  modal.querySelector('input')?.focus();
+}
+
+function closeModal() {
+  modal.hidden = true;
+  document.body.classList.remove('modal-open');
+}
+
+openButtons.forEach((button) => button.addEventListener('click', openModal));
+closeButton.addEventListener('click', closeModal);
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !modal.hidden) closeModal();
+});
