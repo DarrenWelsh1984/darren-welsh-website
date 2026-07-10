@@ -1,0 +1,1 @@
+DS4 premium light homepage. Replace the LinkedIn URL in index.html with your actual newsletter link. Netlify Forms will capture contact submissions; set notifications in Netlify to darren@ds4trade.com.
