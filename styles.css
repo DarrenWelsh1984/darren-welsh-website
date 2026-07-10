@@ -389,3 +389,9 @@ textarea { resize: vertical; }
   .cta-box, .footer-inner { flex-direction: column; align-items: flex-start; }
   .button { width: 100%; }
 }
+
+
+/* Ensure the contact modal stays closed until a contact button is clicked. */
+.modal[hidden] {
+  display: none !important;
+}
