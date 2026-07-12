@@ -20,7 +20,7 @@
         <a href="#services">Services</a>
         <a href="#newsletter">Newsletter</a>
         <a href="#about">About</a>
-        <button class="button button-primary button-small" type="button" data-open-contact>Contact</button>
+        <a class="button button-primary button-small" href="mailto:darren@ds4trade.com?subject=DS4%20Consultation%20Request&body=Hi%20Darren,%0D%0A%0D%0AI%27m%20interested%20in%20discussing%20the%20following%3A%0D%0A%0D%0ACompany%3A%0D%0A%0D%0AHow%20can%20you%20help%20us%3F%0D%0A%0D%0APreferred%20contact%20method%3A%0D%0A%0D%0AThanks%2C">Contact</a>
       </nav>
     </div>
   </header>
@@ -35,7 +35,7 @@
             DS4 helps businesses review customs processes, strengthen compliance and improve freight operations through practical, independent support.
           </p>
           <div class="actions">
-            <button class="button button-primary" type="button" data-open-contact>Let’s Talk</button>
+            <a class="button button-primary" href="mailto:darren@ds4trade.com?subject=DS4%20Consultation%20Request&body=Hi%20Darren,%0D%0A%0D%0AI%27m%20interested%20in%20discussing%20the%20following%3A%0D%0A%0D%0ACompany%3A%0D%0A%0D%0AHow%20can%20you%20help%20us%3F%0D%0A%0D%0APreferred%20contact%20method%3A%0D%0A%0D%0AThanks%2C">Let’s Talk</a>
             <a class="button button-secondary" href="#services">View Services</a>
           </div>
         </div>
@@ -143,7 +143,7 @@
           <p class="eyebrow">Start a conversation</p>
           <h2>Need support with customs, freight or an audit?</h2>
         </div>
-        <button class="button button-primary" type="button" data-open-contact>Contact DS4</button>
+        <a class="button button-primary" href="mailto:darren@ds4trade.com?subject=DS4%20Consultation%20Request&body=Hi%20Darren,%0D%0A%0D%0AI%27m%20interested%20in%20discussing%20the%20following%3A%0D%0A%0D%0ACompany%3A%0D%0A%0D%0AHow%20can%20you%20help%20us%3F%0D%0A%0D%0APreferred%20contact%20method%3A%0D%0A%0D%0AThanks%2C">Contact DS4</a>
       </div>
     </section>
   </main>
@@ -160,35 +160,6 @@
       </div>
     </div>
   </footer>
-
-  <div class="modal" data-modal hidden>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-heading">
-      <button class="modal-close" type="button" aria-label="Close contact form" data-close-contact>×</button>
-      <p class="eyebrow">Contact DS4</p>
-      <h2 id="contact-heading">Tell me what you need help with.</h2>
-
-      <form name="ds4-contact" method="POST" data-netlify="true" action="/thank-you.html">
-        <input type="hidden" name="form-name" value="ds4-contact" />
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Company
-          <input type="text" name="company" />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="6" required></textarea>
-        </label>
-        <button class="button button-primary" type="submit">Send Enquiry</button>
-      </form>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
