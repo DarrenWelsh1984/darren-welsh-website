@@ -848,3 +848,37 @@ textarea { resize: vertical; }
   max-height: 58px !important;
   object-fit: contain !important;
 }
+/* Trade Over Coffee hero image */
+
+.newsletter-image-panel {
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.newsletter-image-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .newsletter-image-panel img {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 680px) {
+  .newsletter-image-panel {
+    border-radius: 22px;
+  }
+
+  .newsletter-image-panel img {
+    min-height: 240px;
+  }
+}
