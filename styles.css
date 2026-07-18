@@ -46,12 +46,27 @@ button, input, textarea { font: inherit; }
   justify-content: space-between;
   gap: 24px;
 }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .brand img {
   display: block;
-  width: 128px;
-  height: 52px;
+  width: 150px;
+  height: 58px;
+  max-width: 150px;
   object-fit: contain;
 }
+.site-header .container {
+  width: min(var(--max-width), 92%);
+}
+
+.header-inner {
+  min-height: 76px;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -528,4 +543,308 @@ textarea { resize: vertical; }
   .resource-download {
     width: 100%;
   }
+}
+/* =========================================================
+   TRADE OVER COFFEE NEWSLETTER
+   ========================================================= */
+
+.newsletter-page {
+  background: var(--white);
+}
+
+.newsletter-hero {
+  padding: 88px 0 70px;
+  background:
+    radial-gradient(circle at 88% 14%, rgba(0, 180, 180, 0.16), transparent 30%),
+    linear-gradient(180deg, var(--turquoise-light), var(--white));
+  border-bottom: 1px solid var(--line);
+}
+
+.newsletter-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.newsletter-hero h1 {
+  max-width: 760px;
+}
+
+.newsletter-intro {
+  max-width: 720px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.newsletter-mark {
+  min-height: 330px;
+  padding: 34px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 26px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.newsletter-mark > p {
+  margin: 0;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.newsletter-cup {
+  position: relative;
+  width: 155px;
+  height: 122px;
+  display: grid;
+  place-items: center;
+  background: var(--white);
+  border: 8px solid var(--teal);
+  border-radius: 14px 14px 52px 52px;
+  color: var(--navy);
+  font-family: Outfit, Inter, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.newsletter-cup::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  top: 29px;
+  width: 43px;
+  height: 50px;
+  border: 8px solid var(--teal);
+  border-left: 0;
+  border-radius: 0 26px 26px 0;
+}
+
+.newsletter-cup::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -38px;
+  width: 230px;
+  height: 20px;
+  transform: translateX(-50%);
+  background: rgba(0, 180, 180, 0.16);
+  border-radius: 50%;
+}
+
+.newsletter-heading {
+  margin-bottom: 36px;
+}
+
+.edition-card {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.edition-cover {
+  min-height: 500px;
+  padding: 34px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(155deg, rgba(10, 31, 68, 0.98), rgba(10, 31, 68, 0.9)),
+    var(--navy);
+}
+
+.edition-cover-inner {
+  width: 100%;
+  min-height: 390px;
+  padding: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(0, 180, 180, 0.34), transparent 30%),
+    rgba(255, 255, 255, 0.04);
+  color: var(--white);
+}
+
+.edition-cover-label {
+  margin: 0;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.edition-cover h2 {
+  max-width: 380px;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1;
+}
+
+.edition-cover-inner > p:not(.edition-cover-label) {
+  margin: 0;
+  font-weight: 700;
+}
+
+.edition-cover-inner span {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.78;
+}
+
+.edition-content {
+  padding: 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edition-number {
+  margin: 0 0 12px;
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.edition-content h2 {
+  margin-bottom: 20px;
+}
+
+.edition-summary {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.edition-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.edition-topics span {
+  padding: 8px 12px;
+  background: var(--turquoise-light);
+  border: 1px solid rgba(0, 180, 180, 0.18);
+  border-radius: 999px;
+  color: var(--teal-dark);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.edition-content .button {
+  width: fit-content;
+}
+
+.newsletter-about {
+  background: var(--white);
+}
+
+.newsletter-about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 54px;
+  align-items: start;
+}
+
+.newsletter-about-grid p {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.future-editions {
+  max-width: 780px;
+}
+
+.future-editions > p:last-child {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.newsletter-cta {
+  background: var(--white);
+}
+
+.newsletter-cta .cta-box p:not(.eyebrow) {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 900px) {
+  .newsletter-hero-grid,
+  .edition-card,
+  .newsletter-about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-mark {
+    min-height: 280px;
+  }
+
+  .edition-cover {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 680px) {
+  .newsletter-hero {
+    padding: 64px 0 50px;
+  }
+
+  .newsletter-mark {
+    padding: 26px;
+  }
+
+  .edition-cover {
+    min-height: 360px;
+    padding: 22px;
+  }
+
+  .edition-cover-inner {
+    min-height: 310px;
+    padding: 28px;
+  }
+
+  .edition-content {
+    padding: 28px 22px;
+  }
+
+  .edition-content .button {
+    width: 100%;
+  }
+}
+
+/* Final header logo size override */
+.site-header .header-inner .brand {
+  display: inline-flex;
+  width: 150px;
+  flex: 0 0 150px;
+  align-items: center;
+}
+
+.site-header .header-inner .brand img {
+  display: block;
+  width: 150px !important;
+  height: 58px !important;
+  max-width: 150px !important;
+  max-height: 58px !important;
+  object-fit: contain !important;
 }
