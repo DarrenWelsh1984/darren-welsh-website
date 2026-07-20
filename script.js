@@ -23,3 +23,26 @@ modal.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !modal.hidden) closeModal();
 });
+
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const navigation = document.querySelector(".nav");
+
+if (menuToggle && navigation) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("nav-open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+  });
+
+  navigation.querySelectorAll("a, button").forEach((item) => {
+    item.addEventListener("click", () => {
+      navigation.classList.remove("nav-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+  });
+}
